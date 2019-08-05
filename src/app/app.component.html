@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+  <h1>
+    Welcome to Stock Prediction Website in Angular
+  </h1>
+  <div class = "NewSearch">
+    <input type="text" placeholder="Enter Share Name " #SearchElement>
+    <button type="button" name="button" (click) = "this.getClick(SearchElement.value);">Search</button>
+    </div>
+
+
+
+<canvas id="lineChart">npm</canvas>
+  
+</div>
+<div class="PastSearch" >
+	<h1>Previous Searched Values</h1>
+	<table id='searchtable'>
+		<tr>
+			<th>Stock Name</th>
+			<th>Last Access At:</th>
+			<th>Value D1</th>
+			<th>Value D2</th>
+			<th>Value D3</th>
+      <th>Value D4</th>
+      <th>Value D5</th>
+		</tr>
+    <tr *ngFor = 'let oldSearches of this.pastSearchValue' >
+			<td>{{oldSearches.SearchElement}}</td>
+			<td>{{oldSearches.SearchTime[0]}}{{oldSearches.SearchTime[1]}}{{oldSearches.SearchTime[2]}}{{oldSearches.SearchTime[3]}}{{oldSearches.SearchTime[4]}}{{oldSearches.SearchTime[5]}}</td>
+			<td *ngFor = 'let value of this.oldSearches.val'>{{value}}</td>
+	</table>
+</div>
+
+
+<router-outlet></router-outlet>
